@@ -1,31 +1,19 @@
 'use client'
-import { useState } from "react";
-import InvoiceForm from "../components/InvoiceForm";
-import Invoice from "../components/Invoice";
+import React, { useRef } from 'react';
+import Invoice from '../components/Invoice';
+// import DownloadablePDFComponent from '../components/PDFGenerator';
 
-interface InvoiceItem {
-  description: string;
-  price: number;
-  quantity: number;
-}
-
-interface InvoiceData {
-  clientName: string;
-  items: InvoiceItem[];
-  date: string;
-  receivedAmount: number;
-}
-
-export default function Home() {
-  const [invoiceData, setInvoiceData] = useState<InvoiceData | null>(null);
-
-  const handleGenerateInvoice = (data: InvoiceData) => setInvoiceData(data);
+const Page: React.FC = () => {
 
   return (
-    <div className="p-8 min-h-screen bg-gray-50 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-8">Invoice Generator</h1>
-      <InvoiceForm onGenerate={handleGenerateInvoice} />
-      {invoiceData && <Invoice data={invoiceData} />}
+    <div className="p-8 bg-gray-100 min-h-screen">
+      {/* Invoice Display */}
+      <Invoice />
+
+      {/* Download PDF Button */}
+      {/* <DownloadablePDFComponent invoiceRef={invoiceRef} /> */}
     </div>
   );
-}
+};
+
+export default Page;
