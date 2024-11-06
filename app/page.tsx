@@ -12,6 +12,8 @@ interface InvoiceItem {
 interface InvoiceData {
   clientName: string;
   items: InvoiceItem[];
+  date: string;
+  receivedAmount: number;
 }
 
 export default function Home() {
