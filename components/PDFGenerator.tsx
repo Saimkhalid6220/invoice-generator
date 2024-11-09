@@ -69,7 +69,7 @@ const Invoice: React.FC<InvoiceProps> = ({ data }) => {
         <div className="grid grid-cols-2 gap-2 mb-4">
           <div>
             <h3 className="font-semibold text-gray-800 text-base">Billed to:</h3>
-            <p className="text-gray-700 text-sm">{data.clientName}</p>
+            <p className="text-gray-700 text-sm capitalize">{data.clientName}</p>
           </div>
           <div>
             <h3 className="font-semibold text-gray-800 text-base">From:</h3>
@@ -94,8 +94,8 @@ const Invoice: React.FC<InvoiceProps> = ({ data }) => {
                 <tr key={index} className="border-t border-gray-200">
                   <td className="p-1 text-sm">{item.description}</td>
                   <td className="p-1 text-center text-sm">{item.quantity}</td>
-                  <td className="p-1 text-center text-sm">${item.price.toFixed(2)}</td>
-                  <td className="p-1 text-right text-sm">${(item.price * item.quantity).toFixed(2)}</td>
+                  <td className="p-1 text-center text-sm">Rs.{item.price.toFixed(2)}</td>
+                  <td className="p-1 text-right text-sm">Rs.{(item.price * item.quantity).toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>
@@ -107,9 +107,9 @@ const Invoice: React.FC<InvoiceProps> = ({ data }) => {
 
         {/* Total Section */}
         <div className={`text-right ${isPDFMode ? "pdf-total" : ""}`}>
-          <p className="text-base font-semibold text-gray-800">Total: ${totalAmount.toFixed(2)}</p>
-          <p className="text-base font-semibold text-gray-800">Received Amount: ${data.receivedAmount.toFixed(2)}</p>
-          <p className="text-base font-semibold text-gray-800">Remaining Amount: ${remainingAmount.toFixed(2)}</p>
+          <p className="text-base font-semibold text-gray-800">Total: Rs.{totalAmount.toFixed(2)}</p>
+          <p className="text-base font-semibold text-gray-800">Received Amount: Rs.{data.receivedAmount.toFixed(2)}</p>
+          <p className="text-base font-semibold text-gray-800">Remaining Amount: Rs.{remainingAmount.toFixed(2)}</p>
         </div>
 
         {/* Bottom Accent Bar */}
